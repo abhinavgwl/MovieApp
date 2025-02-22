@@ -60,8 +60,16 @@ class MovieListViewController: UIViewController {
         } else {
             filteredMovies = viewModel.movies
         }
+        
+        if filteredMovies.isEmpty {
+            movieTableView.setEmptyMessage("Sorry, no movies found.")
+        } else {
+            movieTableView.restore()
+        }
+        
         movieTableView.reloadData()
     }
+
 }
 
 // MARK: - UITableView Delegate & DataSource
